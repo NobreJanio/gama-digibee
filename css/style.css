@@ -24,12 +24,18 @@ header {
 }
 
 .navbar div a {
-    width: 175px;
-    height: 40px;
     display: block;
     color: black;
     font-weight: 800;
-    background-color: red;
+}
+
+.home, .vercursos, .postblog {
+    margin: 0 5px;
+    cursor: pointer;
+    background-image: url('../imagens/botao_1.png');
+}
+.home a, .vercursos a, .postblog a {
+    background-image: url('../imagens/botao_1.png');
 }
 
 .logo {
@@ -50,11 +56,11 @@ section .container {
 }
 
 #container__inicial {
-    .
+    
 }
 
 #container__verCursos {
-    .
+    
 }
 
 #container__verPost {
