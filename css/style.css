@@ -1,12 +1,10 @@
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
-    height: 100vh;
+    width: 100%;
 }
 
 header {
@@ -16,14 +14,24 @@ header {
     text-transform: uppercase;
 }
 
-.cursos {
+.main {
     background-image: url(../imagens/background.jpg);
+}
+
+.cursos {
+    margin: 20px 30px;
+    padding: 20px 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#cursoContainer {
+    margin: 10px 15px;
 }
 
 .navbar {
     padding: 0 35px;
-    display: flex;
-    justify-content: center;
     margin: 0 5px
 }
 
@@ -50,38 +58,12 @@ header {
     background-image: url();
 }
 
-section {
-    height: 100%;
-}
-section .container {
-    width: 100%;
-    height: 100%;
-    
-}
-
-#container__inicial {
-    
-}
-
-#container__verCursos {
-    
-}
-
-#container__verPost {
-
-}
-
 footer {
     height: 100px;
-    position: fixed;
     bottom: 0;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-around;
     background-color: rgba(0, 0, 255, 0.3);
-}
-
-footer .pipe {
-    
 }
