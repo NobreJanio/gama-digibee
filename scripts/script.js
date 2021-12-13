@@ -121,8 +121,6 @@
 // c('#container__verPost').style.display = "none";
 
 
-
-
 function criarCard(info){
     return `
     <div id="cursoContainer" class="card" style="width: 18rem;">
@@ -144,6 +142,8 @@ function listarCursos(){
     a.innerText = 'Todos os Cursos'
     a.style.color = 'purple'
     
+
+function listarCursos() {
     fetch('https://test.godigibee.io/pipeline/gama/v1/gama-digibee?route=cursos', { method: 'GET', headers: {apikey: '3OUYJz5DrI7w5SMMJL2EVmO93JREo6Nm' } }).then( (cursos) => {
         return cursos.json();
     })
@@ -151,13 +151,11 @@ function listarCursos(){
         console.log(cursos)
         cursos.cursos.forEach(info => {
             document.querySelector(".cursos").innerHTML += criarCard(info)
-           
         });
     })
     .catch(error => {
         console.log(error);
-    })
-    
+    })    
 };
 
 function enter() {
@@ -205,5 +203,6 @@ const moveLeft = () => {
 rightBtn.addEventListener("click", moveRight);
 leftBtn.addEventListener("click", moveLeft);
 
+};
 
 

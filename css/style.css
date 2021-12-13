@@ -3,13 +3,16 @@
     font-family: Arial, Helvetica, sans-serif;
     padding: 0;
     margin: 0;
-    
+ 
 }
 
 body {
     width: 100%;
-  
-    
+}
+
+a {
+    text-decoration: none;
+    color: black;
 }
 
 header {
@@ -20,8 +23,7 @@ header {
 }
 
 .main {
-    background-image: url(../imagens/background.jpg);
-    
+    /* background-image: url(../imagens/background.jpg); */
 }
 
 .cursos {
@@ -130,4 +132,18 @@ button .arrow {
 
 #left-btn .arrow {
     transform: rotate(135deg);
+}
+.projectInfo {
+    margin: 30px 60px 30px 60px;
+    padding: 30px 20px 30px 20px;
+}
+
+.projectInfo h1 {
+    text-align: center;
+    padding: 20px;
+    color: blueviolet;
+}
+
+li {
+    padding-top: 10px;
 }
