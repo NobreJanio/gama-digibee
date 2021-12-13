@@ -134,6 +134,23 @@ function criarCard(info){
     `
 };
 
+function criarCardPost(info){
+    return `
+    <div id="cursoContainer" class="card" style="width: 18rem;">
+    <img src="${info.thumb_img}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">${info.title}</h5>
+      <p class="card-text">${info.description}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Autor: ${info.name}</li>
+      <li class="list-group-item">Publicado em: ${info.name}</li>
+    </ul>
+    
+  </div>
+    `
+};
+
 function listarCursos() {
     fetch('https://test.godigibee.io/pipeline/gama/v1/gama-digibee?route=cursos', { method: 'GET', headers: {apikey: '3OUYJz5DrI7w5SMMJL2EVmO93JREo6Nm' } }).then( (cursos) => {
         return cursos.json();
@@ -149,4 +166,18 @@ function listarCursos() {
     })
 };
 
+function listarPostBlog() {
+    fetch('https://test.godigibee.io/pipeline/gama/v1/gama-digibee?route=posts', { method: 'GET', headers: {apikey: '3OUYJz5DrI7w5SMMJL2EVmO93JREo6Nm' } }).then( (postagens) => {
+        return postagens.json();
+    })
+    .then(postagem => {
+        console.log(postagem)
+        postagem.postagens.forEach(info => {
+            document.querySelector(".cursos").innerHTML += criarCardPost(info)
+        });
+    })
+    .catch(error => {
+        console.log(error);
+    })
+};
 
