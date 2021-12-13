@@ -7,6 +7,11 @@ body {
     width: 100%;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
+
 header {
     display: flex;
     justify-content: space-between;
@@ -15,7 +20,7 @@ header {
 }
 
 .main {
-    background-image: url(../imagens/background.jpg);
+    /* background-image: url(../imagens/background.jpg); */
 }
 
 .cursos {
@@ -56,6 +61,21 @@ header {
     align-items: center;
     background-color: rgba(0, 0, 255, 0.3);
     background-image: url();
+}
+
+.projectInfo {
+    margin: 30px 60px 30px 60px;
+    padding: 30px 20px 30px 20px;
+}
+
+.projectInfo h1 {
+    text-align: center;
+    padding: 20px;
+    color: blueviolet;
+}
+
+li {
+    padding-top: 10px;
 }
 
 footer {
