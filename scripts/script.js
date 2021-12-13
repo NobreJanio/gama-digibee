@@ -121,6 +121,7 @@
 // c('#container__verPost').style.display = "none";
 
 
+
 function criarCard(info){
     return `
     <div id="cursoContainer" class="card" style="width: 18rem;">
@@ -132,16 +133,23 @@ function criarCard(info){
     </div>
     `
 };
-var a = document.getElementById('ver--cursos')
-a.addEventListener('click', listarCursos)
-a.addEventListener('mouseenter', enter)
-a.addEventListener('mouseout', exit)
 
-
-function listarCursos(){
-    a.innerText = 'Todos os Cursos'
-    a.style.color = 'purple'
+function criarCardPost(info){
+    return `
+    <div id="cursoContainer" class="card" style="width: 18rem;">
+    <img src="${info.thumb_img}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">${info.title}</h5>
+      <p class="card-text">${info.description}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Autor: ${info.name}</li>
+      <li class="list-group-item">Publicado em: ${info.name}</li>
+    </ul>
     
+  </div>
+    `
+};
 
 function listarCursos() {
     fetch('https://test.godigibee.io/pipeline/gama/v1/gama-digibee?route=cursos', { method: 'GET', headers: {apikey: '3OUYJz5DrI7w5SMMJL2EVmO93JREo6Nm' } }).then( (cursos) => {
@@ -155,54 +163,21 @@ function listarCursos() {
     })
     .catch(error => {
         console.log(error);
-    })    
+    })
 };
 
-function enter() {
-    a.innerText = 'Todos os Cursos' 
-    a.style.color = "purple"
-}
-
-function exit() {
-    a.innerText = 'Ver Cursos'
-}
-
-
-////////////////////////////////////////////////////
-
-const img = document.getElementById('carousel');
-const rightBtn = document.getElementById('right-btn');
-const leftBtn = document.getElementById('left-btn');
-
-// Images are from unsplash
-let pictures = ['../img/a.jpg', '../img/b.jpg', '../img/c.jpg','../img/d.jpg','../img/e.jpg','../img/f.jpg'];
-
-img.src = pictures[0];
-let position = 0;
-
-const moveRight = () => {
-    if (position >= pictures.length - 1) {
-        position = 0
-        img.src = pictures[position];
-        return;
-    }
-    img.src = pictures[position + 1];
-    position++;
-}
-
-const moveLeft = () => {
-    if (position < 1) {
-        position = pictures.length - 1;
-        img.src = pictures[position];
-        return;
-    }
-    img.src = pictures[position - 1];
-    position--;
-}
-
-rightBtn.addEventListener("click", moveRight);
-leftBtn.addEventListener("click", moveLeft);
-
+function listarPostBlog() {
+    fetch('https://test.godigibee.io/pipeline/gama/v1/gama-digibee?route=posts', { method: 'GET', headers: {apikey: '3OUYJz5DrI7w5SMMJL2EVmO93JREo6Nm' } }).then( (postagens) => {
+        return postagens.json();
+    })
+    .then(postagem => {
+        console.log(postagem)
+        postagem.postagens.forEach(info => {
+            document.querySelector(".cursos").innerHTML += criarCardPost(info)
+        });
+    })
+    .catch(error => {
+        console.log(error);
+    })
 };
-
 
